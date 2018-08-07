@@ -1,5 +1,46 @@
+body {
+    background-image: url("../images/Stocksy_txp05b96a53aaF100_Medium_1035744.jpg");
+    background-position: center;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
 .crystal-img {
     width: 100px;
     height: 100px;
     padding: 10px;
+    margin: 15px;
+    /* display: flex;
+    justify-content: space-around; */
+}
+
+.container {
+    border: solid 10px white;
+    background-color: #633985;
+    width: 70%;
+    padding: 0 20px 20px 20px;
+    margin: 30px auto;
+    color: white;
+}
+
+#instructions {
+    text-align: justify;
+    width: 90%;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.boxes {
+    line-height: 18px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+img {
+    border: dotted 2px white;
 }

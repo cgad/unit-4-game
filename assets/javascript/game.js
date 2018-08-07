@@ -26,7 +26,7 @@ $(document).ready(function() {
         target = Math.floor(Math.random() * 102) + 19;
         assignValue();
         document.getElementById("target").textContent = target;
-        document.getElementById("score").textContent = counter;
+        document.getElementById("count").textContent = counter;
     }
     
     setup();
@@ -40,12 +40,13 @@ $(document).ready(function() {
         $("#crystals").append(crystalImg);
     };
 
+
     // GAME
     $(".crystal-img").on("click", function() {
         var crystalValue = $(this).attr("data-crystalvalue");
         crystalValue = parseInt(crystalValue);
         counter += crystalValue;
-        document.getElementById("score").textContent = counter;
+        document.getElementById("count").textContent = counter;
 
         if (counter == target) {
             wins++;

@@ -4,34 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CrystalsCollector Game</title>
+    <title>Crystals Collector Game</title>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
-    <h1>CrystalsCollector!</h1>
+    <div class="container">
+        <h1>Crystals Collector</h1>
 
-    <div class="instructions">
-        <p>You will be given a random number at the start of the game.</p>
-        <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
-        <p>You win the game by matching your total score to the random number, and you lose the game if your total score goes above the random number.</p>
-        <p>The value of each crystal is hidden from you until you click on it.</p>
-        <p>When you win or lose, the game will restart. You will have a new target number and the crystals will have new values.</p>
+        <div id="instructions">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+            <p>You win the game by matching your total score to the random number, and you lose the game if your total score goes above the random number.</p>
+            <p>The value of each crystal is hidden from you until you click on it.</p>
+            <p>When you win or lose, the game will restart. You will have a new target number and the crystals will have new values.</p>
+        </div>
+
+        <div id="crystals">
+        </div>
+
+        <div class="boxes">
+            <div class="row">
+                <div class="col-3">
+                    <p></p>
+                </div>
+                <div class="col-3">
+                    <p>Target score: </p>
+                    <p><strong><span id="target"></span></strong></p>
+                </div>
+                <div class="col-3">
+                    <p>Wins: </p>
+                    <p><strong><span id="wins">0</span></strong></p>
+                </div>
+                <div class="col-3">
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <p></p>
+                </div>
+                <div class="col-3">
+                    <p>Score so far: </p>
+                    <p><strong><span id="count">0</span></strong></p>
+                </div>
+                <div class="col-3">
+                    <p>Losses: </p>
+                    <p><strong><span id="losses">0</span></strong></p>
+                </div>
+                <div class="col-3">
+                    <p></p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <p>Target: <span id="target"></span></p>
-
-    <div class="score">
-        <p>Wins: <span id="wins">0</span></p>
-        <p>Losses: <span id="losses">0</span></p>
-    </div>
-
-    <div id="crystals">
-    </div>
-
-    <p>Your score so far is: <span id="score">0</span></p>
-
-    <script src="assets/javascript/game.js"></script>
+    
+    <script src="assets/javascript/game.js"></script> 
 </body>
 </html>
