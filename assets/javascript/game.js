@@ -9,7 +9,8 @@ $(document).ready(function() {
     var wins = 0;
     var losses = 0;
     var counter = 0;
-    var target = Math.floor(Math.random() * 102) + 19;
+    var target;
+    var value;
 
 
     // FUNCTIONS
@@ -20,45 +21,53 @@ $(document).ready(function() {
             valueOptions.push(value);
         }
     }
-    // page setup/reset
+    // page setup/reset & game
     function setup() {
+        valueOptions = [];
         counter = 0;
         target = Math.floor(Math.random() * 102) + 19;
         assignValue();
         document.getElementById("target").textContent = target;
         document.getElementById("count").textContent = counter;
+        $("#crystals").empty();
+        for (var i = 0; i < valueOptions.length; i++) {
+            var crystalImg = $("<img>");
+            crystalImg.addClass("crystal-img");
+            crystalImg.attr("src", crystalImgChoices[i]);
+            crystalImg.attr("data-crystalvalue", valueOptions[i]);
+            $("#crystals").append(crystalImg);
+        };
+
+        // GAME
+        $(".crystal-img").on("click", function() {
+            var crystalValue = $(this).attr("data-crystalvalue");
+            crystalValue = parseInt(crystalValue);
+            counter += crystalValue;
+            document.getElementById("count").textContent = counter;
+
+            if (counter == target) {
+                wins++;
+                document.getElementById("wins").textContent = wins;
+                setup();
+            }
+
+            if (counter > target) {
+                losses++;
+                document.getElementById("losses").textContent = losses;
+                setup();
+            }
+        });
     }
     
     setup();
 
+    console.log("target: " + target);
+    console.log(valueOptions);
+
     // for loop to append crystals for each valueOption
-    for (var i = 0; i < valueOptions.length; i++) {
-        var crystalImg = $("<img>");
-        crystalImg.addClass("crystal-img");
-        crystalImg.attr("src", crystalImgChoices[i]);
-        crystalImg.attr("data-crystalvalue", valueOptions[i]);
-        $("#crystals").append(crystalImg);
-    };
+    
 
 
-    // GAME
-    $(".crystal-img").on("click", function() {
-        var crystalValue = $(this).attr("data-crystalvalue");
-        crystalValue = parseInt(crystalValue);
-        counter += crystalValue;
-        document.getElementById("count").textContent = counter;
 
-        if (counter == target) {
-            wins++;
-            document.getElementById("wins").textContent = wins;
-            setup();
-        }
-
-        if (counter > target) {
-            losses++;
-            document.getElementById("losses").textContent = losses;
-            setup();
-        }
-    });
     
 });
