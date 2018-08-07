@@ -21,6 +21,7 @@ $(document).ready(function() {
             valueOptions.push(value);
         }
     }
+    
     // page setup/reset & game
     function setup() {
         valueOptions = [];
